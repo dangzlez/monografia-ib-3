@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monografía IB | Guía y aspectos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales para el cuerpo del documento */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Fondo oscuro */
+            color: #c9d1d9; /* Texto claro */
+        }
+        /* Gradiente para el contenedor principal, imitando la versión anterior */
+        .bg-gradient-purple-blue {
+            background-image: linear-gradient(to bottom right, #a78bfa, #818cf8);
+        }
+        /* Estilo de las tarjetas de contenido */
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Efecto al pasar el cursor sobre las tarjetas */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Botón con efecto de brillo para la pestaña activa */
+        .glow-button {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            color: white;
+            font-weight: bold;
+        }
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        /* Contenido de las pestañas */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Animación inicial del contenedor */
+        .animate-pop-in {
+            animation: pop-in 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        @keyframes pop-in {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="p-8">
+
+    <!-- Sección del encabezado -->
+    <header class="text-center mb-16 animate-pop-in">
+        <!-- Icono de escritura con un fondo que coincide con la paleta de colores -->
+        <img src="https://colegiocamarenacanet.es/wp-content/uploads/2024/04/dp-model-es-copia.png" alt="Icono de escritura estilizado" class="mx-auto rounded-full shadow-lg mb-4" width="150px">
+        <h1 class="text-6xl font-extrabold text-white mb-2">Monografía IB</h1>
+        <p class="text-2xl text-gray-400">Guía y aspectos</p>
+    </header>
+
+    <!-- Contenedor principal de pestañas -->
+    <main class="max-w-7xl mx-auto bg-gradient-purple-blue p-8 md:p-12 rounded-3xl shadow-2xl animate-pop-in">
+       
+        <!-- Navegación de las pestañas -->
+        <div class="flex flex-wrap justify-center mb-8 gap-2 md:gap-4">
+            <button class="tab-button bg-blue-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg glow-button active" data-tab="que-es">¿Qué es?</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="que-no-es">¿Qué NO es?</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="por-que">¿Por qué importa?</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="puntos-clave">Puntos Clave</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="deadlines">Deadlines</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="preguntas">Preguntas de Investigación</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="integridad">Integridad Académica</button>
+            <button class="tab-button bg-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-gray-600 transition-colors" data-tab="supervisores">Rol del Supervisor</button>
+        </div>
+
+        <!-- Contenido de las pestañas -->
+       
+        <!-- ¿Qué es? -->
+        <div id="que-es" class="tab-content active">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-4">¿Qué es la Monografía?</h3>
+                <p class="text-gray-300 mb-4 text-lg">La monografía es un trabajo de investigación de hasta 4000 palabras de forma independiente sobre un tema elegido por vos. Es un requisito obligatorio para obtener el Diploma IB.</p>
+                <ul class="list-disc list-inside text-gray-400 space-y-2 text-md">
+                    <li>**No es necesario que sea original para aprobar**, pero sí se valora un enfoque único.</li>
+                </ul>
+            </div>
+        </div>
+       
+        <!-- ¿Qué NO es? -->
+        <div id="que-no-es" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-4">¿Qué NO es la Monografía?</h3>
+                <p class="text-gray-300 mb-4 text-lg">Es importante entender que la monografía no es solo un trabajo de investigación largo, tiene requisitos específicos y un propósito claro.</p>
+                <ul class="list-disc list-inside text-gray-400 space-y-2 text-md">
+                    <li>NO es un Internal Assessment (IA) más largo.</li>
+                    <li>NO es una simple recopilación de información; requiere un análisis profundo.</li>
+                    <li>NO es un trabajo que se pueda hacer a último momento; necesita un proceso de investigación y reflexión constante.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ¿Por qué importa? -->
+        <div id="por-que" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-4">¿Por qué es tan importante?</h3>
+                <p class="text-gray-300 mb-4 text-lg">Te prepara para la universidad, enseñándote a investigar y gestionar proyectos.</p>
+                <div class="mt-4 bg-yellow-900 bg-opacity-30 p-4 rounded-xl border border-yellow-700">
+                    <p class="text-yellow-400 font-bold text-xl">Puedes conseguir HASTA 3 PUNTOS extra para tu Diploma si la combinás con la nota de Teoría del Conocimiento (TdC).</p>
+                </div>
+                <div class="mt-4 bg-red-900 bg-opacity-30 p-4 rounded-xl border border-red-700">
+                    <p class="text-red-400 font-semibold text-lg">¡Ojo! Si la hacés mal (sacás una nota 'E'), Perdés el Diploma.</p>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Puntos Clave -->
+        <div id="puntos-clave" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-6">Criterios de Evaluación (Puntos Clave)</h3>
+                <p class="text-gray-300 mb-4 text-lg">Tu monografía se evalúa en base a 5 criterios principales:</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-4 rounded-xl">
+                        <h4 class="text-xl font-semibold text-blue-400 mb-2">Criterio A: Enfoque (6ptos)</h4>
+                        <p class="text-gray-400">Calidad de la pregunta de investigación.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl">
+                        <h4 class="text-xl font-semibold text-blue-400 mb-2">Criterio B: Conocimiento (6ptos)</h4>
+                        <p class="text-gray-400">Uso de los conceptos de la materia.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl">
+                        <h4 class="text-xl font-semibold text-blue-400 mb-2">Criterio C: Pensamiento Crítico (12ptos)</h4>
+                        <p class="text-gray-400">Análisis y discusión de la investigación.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl">
+                        <h4 class="text-xl font-semibold text-blue-400 mb-2">Criterio D: Presentación (4ptos)</h4>
+                        <p class="text-gray-400">Estructura y formato.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl">
+                        <h4 class="text-xl font-semibold text-blue-400 mb-2">Criterio E: Compromiso (6ptos)</h4>
+                        <p class="text-gray-400">Proceso de investigación y reflexión.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Deadlines -->
+        <div id="deadlines" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-6">Fechas Clave (Deadlines)</h3>
+                <div class="relative pl-6">
+                    <div class="absolute left-0 top-0 h-full w-0.5 bg-blue-500"></div>
+                    <div class="space-y-6">
+                        <div class="relative bg-gray-800 p-4 rounded-xl shadow-md before:content-[''] before:absolute before:-left-[1.8rem] before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-blue-500 before:rounded-full">
+                            <span class="text-xs text-gray-500">OCT 2025</span>
+                            <p class="text-lg font-semibold text-gray-300">Elección de la asignatura y el supervisor.</p>
+                        </div>
+                        <div class="relative bg-gray-800 p-4 rounded-xl shadow-md before:content-[''] before:absolute before:-left-[1.8rem] before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-blue-500 before:rounded-full">
+                            <span class="text-xs text-gray-500">NOV 2025</span>
+                            <p class="text-lg font-semibold text-gray-300">Primera entrevista. Entrega de tema y pregunta de investigación.</p>
+                        </div>
+                        <div class="relative bg-gray-800 p-4 rounded-xl shadow-md before:content-[''] before:absolute before:-left-[1.8rem] before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-blue-500 before:rounded-full">
+                            <span class="text-xs text-gray-500">MAR 2026</span>
+                            <p class="text-lg font-semibold text-gray-300">Primera Reflexión y entrega de contenidos.</p>
+                        </div>
+                        <div class="relative bg-gray-800 p-4 rounded-xl shadow-md before:content-[''] before:absolute before:-left-[1.8rem] before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-blue-500 before:rounded-full">
+                            <span class="text-xs text-gray-500">MAY 2026</span>
+                            <p class="text-lg font-semibold text-gray-300">Entrega del primer borrador y segunda Reflexión.</p>
+                        </div>
+                        <div class="relative bg-gray-800 p-4 rounded-xl shadow-md before:content-[''] before:absolute before:-left-[1.8rem] before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-blue-500 before:rounded-full">
+                            <span class="text-xs text-gray-500">AGO 2026</span>
+                            <p class="text-lg font-semibold text-gray-300">Entrega final y entrevista final (Viva Voce).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preguntas de Investigación -->
+        <div id="preguntas" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-6">La Pregunta de Investigación: Ejemplos</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-green-900 bg-opacity-30 p-4 rounded-xl border-l-4 border-green-700">
+                        <h4 class="text-xl font-semibold text-green-400 mb-2">Preguntas BUENAS</h4>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>¿En qué medida Juan Pablo Castel es un ser existencialista?</li>
+                            <li>¿Hasta qué punto los incendios en el Amazonas pueden llevar a una disminución de las precipitaciones en la región pampeana argentina así afectar la actividad agrícola?</li>
+                            <li>¿De qué manera la programación lineal ayuda a la empresa X?</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-900 bg-opacity-30 p-4 rounded-xl border-l-4 border-red-700">
+                        <h4 class="text-xl font-semibold text-red-400 mb-2">Preguntas MALAS</h4>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>¿Cómo son los sonetos de Shakespeare? (Demasiado amplia)</li>
+                            <li>¿Por qué existen diferentes filosofías? (No es concreta)</li>
+                            <li>¿Cuánto tarda en caer las fichas de un dominó? (Demasiado simple)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integridad Académica -->
+        <div id="integridad" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-6">Integridad Académica</h3>
+                <p class="text-gray-300 text-lg mb-4">Tu trabajo debe ser 100% original. Siempre que usen información de otras fuentes, **deben citarlas correctamente**. El plagio o la colusión son una falta muy grave que puede costarte el Diploma.</p>
+                <div class="flex items-center space-x-4 p-4 bg-red-900 bg-opacity-30 rounded-xl border border-red-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <p class="text-red-400 font-semibold text-lg">El plagio o la colusión son una falta muy grave que puede costarte el Diploma.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rol del Supervisor -->
+        <div id="supervisores" class="tab-content">
+            <div class="card p-6 md:p-8 rounded-2xl">
+                <h3 class="text-3xl font-extrabold text-blue-500 mb-6">Rol de tu Supervisor</h3>
+                <p class="text-gray-300 text-lg mb-4">Tu supervisor es tu guía. Está para ayudarte a:</p>
+                <ul class="list-disc list-inside text-gray-300 space-y-2 text-md">
+                    <li>Elegir el tema.</li>
+                    <li>Ayudarte a reformular tu pregunta de investigación.</li>
+                    <li>Ofrecerte recursos y apoyo.</li>
+                </ul>
+                <p class="text-gray-300 text-lg mt-4">Recuerda que tienes **3 sesiones de reflexión obligatorias**.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-blue-600', 'text-white', 'glow-button');
+                        btn.classList.add('bg-gray-700', 'text-gray-300');
+                    });
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    const tabId = button.dataset.tab;
+                    button.classList.add('active', 'bg-blue-600', 'text-white', 'glow-button');
+                    button.classList.remove('bg-gray-700', 'text-gray-300');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Activa la primera pestaña al cargar la página
+            tabButtons[0].classList.add('active', 'bg-blue-600', 'text-white', 'glow-button');
+            tabButtons[0].classList.remove('bg-gray-700', 'text-gray-300');
+            tabContents[0].classList.add('active');
+        });
+    </script>
+</body>
+
+</html>
+
